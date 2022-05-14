@@ -26,5 +26,9 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: theme.fonts.primary_400,
     color: theme.colors.text,
-  }
+  },
+  carList: {
+    padding: 24
+  },
+  
 });

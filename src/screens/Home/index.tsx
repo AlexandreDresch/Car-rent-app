@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import { StatusBar } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 
@@ -8,6 +8,16 @@ import { Car } from '../../components/Car';
 import { styles } from './styles';
 
 export function Home(){
+  const carData = {
+    brand: 'Audi',
+    name: 'RS 5 Coupe',
+    rent: {
+      period: 'Day',
+      price: 150,
+    },
+    thumbnail: 'https://file.kelleybluebookimages.com/kbb/base/evox/ExtSpP/13516/2019-Audi-RS%205-360SpinFrame_13516_032_2400x1800_nologo.png'
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar 
@@ -29,7 +39,16 @@ export function Home(){
         </View>
       </View>
 
-      <Car />
+      <FlatList 
+        style={styles.carList}
+        data={[1, 2, 3, 4, 5, 6]}
+        keyExtractor={item => String(item)}
+        renderItem={({ item }) => <Car data={carData} /> }
+        showsVerticalScrollIndicator={false}
+      />
+        
+      
+      
     </View>
   );
 }
