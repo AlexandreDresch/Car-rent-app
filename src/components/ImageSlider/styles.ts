@@ -1,33 +1,35 @@
-import { StyleSheet } from 'react-native';
-
+import styled from "styled-components/native";
 import { Dimensions } from 'react-native';
 
-import theme from '../../global/themes/theme';
+interface ImageIndexProps {
+  active: boolean;
+}
 
-export const styles = StyleSheet.create({
-  container: {
-    width: '100%'
-  },
-  imageIndexes: {
-    flexDirection: 'row',
-    alignSelf: 'flex-end',
-    paddingRight: 24,
-  },
-  imageIndex: {
-    width: 6,
-    height: 6,
-    // delete later
-    
-  },
-  carImageWrapper: {
-    width: Dimensions.get('window').width,
-    height: 132,
+export const Container = styled.View`
+  width: 100%;
+`;
+export const ImageIndexes = styled.View`
+  flex-direction: row;
+  align-self: flex-end;
+  padding-right: 24px;
+`;
+export const ImageIndex = styled.View<ImageIndexProps>`
+  width: 6px;
+  height: 6px;
 
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  carImage: {
-    width: 280,
-    height: 132
-  }
-});
+  background-color: ${({ active }) => 
+    active ? '#47474D' : '#E1E1E8'};
+  
+  margin-left: 8px;
+  border-radius: 3px;
+`;
+export const CarImageWrapper = styled.View`
+  width: ${Dimensions.get('window').width}px;
+  height: 132px;
+  justify-content: center;
+  align-items: center;
+`;
+export const CarImage = styled.Image`
+  width: 280px;
+  height: 132px
+`;
