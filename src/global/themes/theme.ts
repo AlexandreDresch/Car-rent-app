@@ -1,3 +1,5 @@
+import { RFValue } from "react-native-responsive-fontsize";
+
 export default {
     colors: {
         header: '#1B1B1F',
@@ -24,5 +26,10 @@ export default {
         secondary_400: 'Archivo_400Regular',
         secondary_500: 'Archivo_500Medium', 
         secondary_600: 'Archivo_600SemiBold'
+    },
+    fontSize: {
+        small: RFValue(10),
+        medium: RFValue(15),
+        large: RFValue(25),
     }
 }

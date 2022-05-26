@@ -1,5 +1,5 @@
 
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 
 import { BackButton } from '../../components/BackButton';
 import { ImageSlider } from '../../components/ImageSlider';
@@ -27,9 +27,12 @@ export function CarDetails(){
           />
         </View>
 
-        <View style={styles.content}>
+        <ScrollView 
+          contentContainerStyle={styles.content}
+          showsVerticalScrollIndicator={false}
+        >
           <View style={styles.details}>
-            <View style={styles.description}>
+            <View>
 
               <Text style={styles.brand}>
                 Audi
@@ -40,7 +43,7 @@ export function CarDetails(){
               </Text>
             </View>
 
-            <View style={styles.rent}>
+            <View>
               <Text style={styles.period}>
                 Day
               </Text>
@@ -51,7 +54,13 @@ export function CarDetails(){
             </View>
 
           </View>
-        </View>
+
+          <Text style={styles.about}>
+          The Audi RS 5 Sportback delivers performance and everyday usability offering an exhilarating drive. Search inventory. 
+          Offers. Horsepower. 444. HP. Torque. 442. lb-ft. 0-60 mph in. 3.8. sec.
+          </Text>
+
+        </ScrollView>
     </View>
   );
 }
