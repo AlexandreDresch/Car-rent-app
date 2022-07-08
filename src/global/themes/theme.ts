@@ -29,7 +29,9 @@ export default {
     },
     fontSize: {
         small: RFValue(10),
+        small_plus: RFValue(13),
         medium: RFValue(15),
         large: RFValue(25),
+        extra_large: RFValue(34),
     }
 }

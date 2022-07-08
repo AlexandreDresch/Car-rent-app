@@ -1,29 +1,47 @@
-
 import { View, Text, ScrollView } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { BackButton } from '../../components/BackButton';
 import { ImageSlider } from '../../components/ImageSlider';
+import { Accessory } from '../../components/Accessory';
+import { Button } from '../../components/Button';
+
+import { getAccessoryIcon } from '../../utils/getAccessoryIcon';
+
+import { CarDTO } from '../../dtos/CarDTO';
 
 import { styles } from './styles';
 
+
+interface Params {
+  car: CarDTO
+}
+
 export function CarDetails(){
-  const image = [
-    'https://file.kelleybluebookimages.com/kbb/base/evox/ExtSpP/13516/2019-Audi-RS%205-360SpinFrame_13516_032_2400x1800_nologo.png',
-]
+  const navigation = useNavigation<any>();
+  const route = useRoute();
+  const { car } = route.params as Params;
+
+  function handleConfirmRental() {
+    navigation.navigate('Scheduling', {
+      car,
+    })
+  }
+
   return (
     <View style={styles.container}>
 
         <View style={styles.header}>
 
             <BackButton 
-                onPress={() => {}}
+                onPress={() => navigation.goBack()}
             />
 
         </View>
 
         <View style={styles.carImages}>
           <ImageSlider 
-              imagesUrl={image}
+              imagesUrl={car.photos}
           />
         </View>
 
@@ -35,32 +53,53 @@ export function CarDetails(){
             <View>
 
               <Text style={styles.brand}>
-                Audi
+                {car.brand}
               </Text>
 
               <Text style={styles.carName}>
-                RS 5
+                {car.name}
               </Text>
             </View>
 
             <View>
               <Text style={styles.period}>
-                Day
+                {car.rent.period}
               </Text>
 
               <Text style={styles.price}>
-                $ 500
+                $ {car.rent.price}
               </Text>
             </View>
 
           </View>
 
+          <View style={styles.accessories}>
+
+            {
+              car.accessories.map(accessory => (
+                <Accessory 
+                  key={accessory.type}
+                  name={accessory.name}
+                  icon={getAccessoryIcon(accessory.type)}
+                />
+              ))              
+            }            
+            
+          </View>
+
           <Text style={styles.about}>
-          The Audi RS 5 Sportback delivers performance and everyday usability offering an exhilarating drive. Search inventory. 
-          Offers. Horsepower. 444. HP. Torque. 442. lb-ft. 0-60 mph in. 3.8. sec.
+            {car.about}
           </Text>
 
         </ScrollView>
+
+      <View style={styles.footer}>
+      <Button 
+        title='Choose rental period'
+        onPress={handleConfirmRental}
+      />
+      </View>
+
     </View>
   );
 }

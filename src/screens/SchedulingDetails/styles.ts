@@ -53,14 +53,6 @@ export const styles = StyleSheet.create({
     color: theme.colors.main,
     fontSize: theme.fontSize.large,
   },
-  about: {
-    fontFamily: theme.fonts.primary_400,
-    color: theme.colors.text,
-    fontSize: theme.fontSize.medium,
-    textAlign: 'justify',
-    marginTop: 23,
-    lineHeight: theme.fontSize.large,
-  },
   accessories: {
     width: '100%',
     flexDirection: 'row',
@@ -74,5 +66,59 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.background_secondary,
     padding: 24,
     paddingBottom: getBottomSpace() + 24,
+  },
+  rentalPeriod: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent:'space-between',
+    alignItems: 'center',
+    marginTop: 40,
+    borderBottomWidth: 1,
+    borderBottomColor: theme.colors.line,
+    paddingBottom: 16
+  },
+  calendarIcon: {
+    width: 48,
+    height: 48,
+    backgroundColor: theme.colors.main,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  dateTitle: {
+    fontFamily: theme.fonts.primary_500,
+    color: theme.colors.text_detail,
+    fontSize: theme.fontSize.small,
+    textTransform: 'uppercase',
+  },
+  dateValue: {
+    fontFamily: theme.fonts.primary_500,
+    color: theme.colors.title,
+    fontSize: theme.fontSize.medium,
+  },
+  rentalPrice: {
+    width: '100%',
+    marginTop: 16
+  },
+  rentalPriceLabel: {
+    fontFamily: theme.fonts.primary_500,
+    color: theme.colors.text_detail,
+    fontSize: theme.fontSize.small,
+    textTransform: 'uppercase',
+  },
+  rentalPriceDetails: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  rentalPriceQuota: {
+    fontFamily: theme.fonts.primary_500,
+    color: theme.colors.title,
+    fontSize: theme.fontSize.medium,
+  },
+  rentalPriceTotal: {
+    fontFamily: theme.fonts.secondary_500,
+    color: theme.colors.success,
+    fontSize: theme.fontSize.large,
   }
 });

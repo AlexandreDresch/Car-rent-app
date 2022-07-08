@@ -1,26 +1,20 @@
 import { View, Text, Image } from 'react-native';
+import { GestureHandlerRootView, RectButtonProps } from 'react-native-gesture-handler';
 
-import GasolineSvg from '../../assets/gasoline.svg';
+import { styles, Container } from './styles';
 
-import { styles } from './styles';
+import { CarDTO } from '../../dtos/CarDTO';
 
-interface CarData {
-  brand: string;
-  name: string;
-  rent: {
-    period: string;
-    price: number;
-  },
-  thumbnail: string;
+interface Props extends RectButtonProps {
+  data: CarDTO;
 }
 
-interface Props {
-  data: CarData;
-}
+export function Car({ data, ...rest } : Props){
 
-export function Car({ data } : Props){
+  
   return (
-    <View style={styles.container}>
+    <GestureHandlerRootView>
+    <Container {...rest}>
       <View style={styles.details}>
         <Text style={styles.brand}>
           {data.brand}
@@ -41,10 +35,6 @@ export function Car({ data } : Props){
             </Text>
           </View>
 
-          <View style={styles.type}>
-            <GasolineSvg />
-          </View>
-
         </View>
 
       </View>
@@ -55,6 +45,7 @@ export function Car({ data } : Props){
         resizeMode='contain'
       />
 
-    </View>
+    </Container>
+    </GestureHandlerRootView>
   );
 }

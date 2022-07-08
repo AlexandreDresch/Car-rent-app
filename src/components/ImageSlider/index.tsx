@@ -1,4 +1,3 @@
-import theme from '../../global/themes/theme';
 import {
     Container,
     ImageIndexes,

@@ -1,18 +1,24 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
+import styled from 'styled-components';
+
 import theme from '../../global/themes/theme';
 
-export const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: 126,
+export const Container = styled(RectButton)`
+  width: 100%;
+  height: 126px;
 
-    backgroundColor: theme.colors.background_secondary,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 24,
-    marginBottom: 16,
-  },
+  background-color: #FFFFFF;
+
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 24px;
+  margin-bottom: 16px
+`;
+
+export const styles = StyleSheet.create({
   details: {
 
   },
